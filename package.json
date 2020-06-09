@@ -10,7 +10,7 @@
     "telegram",
     "bot"
   ],
-  "author": "mrsidhyderockstar",
+  "author": "sidorgautamov",
   "license": "MIT",
   "dependencies": {
     "config": "^3.3.1",
