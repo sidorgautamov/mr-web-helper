@@ -1,0 +1,23 @@
+{
+  "name": "mr-web-helper",
+  "version": "1.0.0",
+  "description": "Telegram bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index"
+  },
+  "keywords": [
+    "telegram",
+    "bot"
+  ],
+  "author": "mrsidhyderockstar",
+  "license": "MIT",
+  "dependencies": {
+    "config": "^3.3.1",
+    "express": "^4.17.1",
+    "node-telegram-bot-api": "^0.50.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
