@@ -9,7 +9,7 @@ const URL = process.env.url;
 const bot = new TelegramBot(ACCESS_TOKEN);
 bot.setWebHook(URL);
 
-app.use('/', require('./routes/bot.routes'));
+app.use('api/', require('./routes/bot.routes'));
 
 async function startServer() {
     try {
