@@ -7,8 +7,7 @@
     "start": "nodemon index"
   },
   "keywords": [
-    "telegram",
-    "bot"
+    "telegram"
   ],
   "author": "sidorgautamov",
   "license": "MIT",
