@@ -1,10 +1,12 @@
 const express = require('express');
 
 const app = express();
-const PORT = process.env.port;
-const URL = process.env.url;
+const PORT = 5000;
+const URL = 'http://localhost';
 
-app.use('api/', require('./routes/bot.routes'));
+app.get('/api/callback', (req, res) => {
+    res.send(`Status ${res.statusCode}`);
+});
 
 async function startServer() {
     try {
