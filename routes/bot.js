@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const router = Router();
 
-router.post('/callback', async (req, res) => {
+router.post('/bot/callback', async (req, res) => {
     try {
         const { name, number } = req.body;
         console.log({ имя: name, номер: number });
@@ -10,7 +10,7 @@ router.post('/callback', async (req, res) => {
     }
 });
 
-router.get('/callback', async (req, res) => {
+router.get('/bot/callback', async (req, res) => {
     try {
         res.status(200).json({ status: res.statusCode });
         res.end();

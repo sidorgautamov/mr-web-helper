@@ -15,7 +15,7 @@ app.post('/api/callback', jsonParser, async (req, res, next) => {
         console.log({ name: name, number: number });
         next();
     } catch (e) {
-        res.status(500).json({ error: 'Something go wrong' });
+        res.status(500).json({ error: e.message });
     }
 });
 
@@ -25,7 +25,7 @@ app.get('/api/callback', async (req, res, next) => {
         res.end();
         next();
     } catch (e) {
-        res.status(500).json({ error: 'Something go wrong' });
+        res.status(500).json({ error: e.message });
     }
 });
 
