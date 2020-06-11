@@ -6,25 +6,26 @@ const bodyParser = require('body-parser');
 const app = express();
 const PORT = 5000;
 
-const urlencodedParser = bodyParser.json();
+const jsonParser = bodyParser.json();
 
 app.use(cors());
 
-app.post('/api/callback', urlencodedParser, async (req, res) => {
+app.post('/api/callback', jsonParser, async (req, res, next) => {
     try {
         res.status(200).json({ status: res.statusCode })
         const { name, number } = req.body;
         console.log({ name: name, number: number });
-        console.log({ headers: req.headers });
+        next();
     } catch (e) {
         res.status(500).json({ error: 'Something go wrong' });
     }
 });
 
-app.get('/api/callback', async (req, res) => {
+app.get('/api/callback', async (req, res, next) => {
     try {
         res.status(200).json({ status: res.statusCode });
         res.end();
+        next();
     } catch (e) {
         res.status(500).json({ error: 'Something go wrong' });
     }
