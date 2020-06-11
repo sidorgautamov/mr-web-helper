@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Grid, Typography, ButtonBase, Box, makeStyles } from '@material-ui/core';
+import { useHttp } from '../hooks/http.hook';
 
 const useStyle = makeStyles((theme) => ({
     container: {
@@ -106,25 +107,37 @@ const useStyle = makeStyles((theme) => ({
 
 export default function CallbackFrom() {
     const classes = useStyle();
+    const { request } = useHttp();
+    const [form, setForm] = useState({ name: '', number: '' });
+    
+    const changeHandler = event => {
+        setForm({ ...form, [event.target.name]: event.target.value });
+    }
+
+    const sendMessage = async () => {
+        try {
+            await request('http://127.0.0.1:5000/api/callback', 'POST', { ...form });
+        } catch (e) {}
+    }
 
     return (
         <Grid container spacing={0} className={classes.container}>
             <Grid item xs={10} md={8} xl={6} className={classes.item}>
                 <Typography variant="h3" color="textSecondary" align="center">
-                    MrWebHelper - Telegram Bot 🤖
+                    MrWebHelper - Telegram Bot <span role="img">🤖</span>
                 </Typography>
 
                 <Typography variant="body2" color="textSecondary" align="center">
                     Ваше имя
                 </Typography>
-                <input id="name" className={classes.inputForm} />
+                <input id="name" name="name" className={classes.inputForm} onChange={changeHandler} />
 
                 <Typography variant="body2" color="textSecondary" align="center">
                     Ваш номер
                 </Typography>
-                <input id="number" className={classes.inputForm} />
+                <input id="number" name="number" className={classes.inputForm} onChange={changeHandler} />
 
-                <ButtonBase className={classes.textButton} onClick={() => { }}>
+                <ButtonBase className={classes.textButton} onClick={sendMessage}>
                     <Typography variant="button" color="textSecondary" align="center">
                         Отправить
                     </Typography>
