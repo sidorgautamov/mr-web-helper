@@ -116,7 +116,7 @@ export default function CallbackFrom() {
 
     const sendMessage = async () => {
         try {
-            await request('http://127.0.0.1:5000/api/callback', 'POST', { ...form });
+            await request('https://mr-web-helper.glitch.me/api/callback', 'POST', { ...form });
         } catch (e) {}
     }
 
