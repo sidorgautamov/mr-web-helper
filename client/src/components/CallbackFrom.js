@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Grid, Typography, ButtonBase, Box, makeStyles } from '@material-ui/core';
-import { useHttp } from '../hooks/http.hook';
+import { useHttp } from '../hooks/http-hook';
 
 const useStyle = makeStyles((theme) => ({
     container: {
@@ -109,7 +109,6 @@ export default function CallbackFrom() {
     const classes = useStyle();
     const { request } = useHttp();
     const [form, setForm] = useState({ name: '', number: '' });
-    let canSend = false;
     
     const changeHandler = event => {
         setForm({ ...form, [event.target.name]: event.target.value });
@@ -117,7 +116,7 @@ export default function CallbackFrom() {
 
     const sendMessage = async () => {
         try {
-            await request('https://mr-web-helper.glitch.me/api/bot/callback', 'POST', { ...form });
+            await request('/api/bot/callback', 'POST', { ...form });
         } catch (e) {}
     }
 
@@ -138,7 +137,7 @@ export default function CallbackFrom() {
                 </Typography>
                 <input id="number" name="number" className={classes.inputForm} onChange={changeHandler} />
 
-                <ButtonBase className={classes.textButton} onClick={sendMessage} disabled={canSend}>
+                <ButtonBase className={classes.textButton} onClick={sendMessage}>
                     <Typography variant="button" color="textSecondary" align="center">
                         Отправить
                     </Typography>
