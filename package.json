@@ -1,29 +1,19 @@
 {
   "name": "mr-web-helper",
   "version": "1.0.0",
-  "description": "Telegram bot",
-  "main": "index.js",
+  "description": "Telegram bot for web sites",
+  "main": "server.js",
   "scripts": {
-    "start": "node index",
-    "server": "nodemon index",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "telegram"
-  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sidorgautamov/mr-web-helper.git"
+  },
   "author": "sidorgautamov",
-  "license": "MIT",
-  "dependencies": {
-    "@material-ui/core": "^4.10.1",
-    "body-parser": "^1.19.0",
-    "config": "^3.3.1",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "node-telegram-bot-api": "^0.50.0"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sidorgautamov/mr-web-helper/issues"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.4",
-    "concurrently": "^5.2.0"
-  }
+  "homepage": "https://github.com/sidorgautamov/mr-web-helper#readme"
 }
