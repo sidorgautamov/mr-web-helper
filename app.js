@@ -1,13 +1,11 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-require('dotenv').config();
 
 const app = express();
+const indexRoutes = require('./routes/index');
 const botRoutes = require('./api/bot');
 
-
-app.use(express.static(path.join(__dirname, '/client/build')));
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
@@ -20,11 +18,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get('/', (req, res, next) => {
-    res.status(200);
-    res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
-});
-
+app.use('/', indexRoutes);
 app.use('/api', botRoutes);
 
 app.use((req, res, next) => {
