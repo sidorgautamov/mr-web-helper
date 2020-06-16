@@ -27,7 +27,7 @@ const theme = createMuiTheme({
       sm: 35, /* 560px */
       md: 60, /* 960px */
       lg: 80, /* 1280px */
-      xl: 120 /* 1920px */
+      xl: 128 /* 2048px */
     },
     unit: 'rem'
   },
